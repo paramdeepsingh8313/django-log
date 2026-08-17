@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block body %}
+    <h1>{{blogs.count}} blog{{ blogs.count|pluralize }}</h1>
+    {% for i in blogs %}
+        <div class="card">
+        <div class="card-image">
+          <img src="{{i.image.url}}">
+          <span class="card-title">{{i.title}}</span>
+        </div>
+        <div class="card-content">
+          <p>{{i.description|truncatechars:125}}</p>
+          <p>{{i.date|date:'d M Y'}}</p>
+        </div>
+        <div class="card-action">
+          <a href="{% url 'detail' i.id %}">This is a link</a>
+        </div>
+      </div>
+    {% endfor%}
+{% endblock %}

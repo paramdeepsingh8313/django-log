@@ -1,0 +1,16 @@
+from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from .models import Blog
+
+# Create your views here.
+def home(req):
+    blogs = Blog.objects.all().order_by("-date")
+    data = [1,2,3,4,5]
+    return render(req, 'home.html', {'blogs': blogs})
+
+def about(req):
+    return render(req, 'about.html')
+
+def detail(req, id):
+    blog = get_object_or_404(Blog, pk = id)
+    return render(req, 'detail.html', {'blog': blog})

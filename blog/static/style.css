@@ -1,0 +1,10 @@
+ h1{
+        text-align: center;
+    }
+.card{
+    max-width: 512px;
+    margin: 12px auto;
+}
+.card img{
+    height: 250px;
+}

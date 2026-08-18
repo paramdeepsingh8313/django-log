@@ -3,10 +3,10 @@ from django.shortcuts import render, get_object_or_404
 from .models import Blog
 
 # Create your views here.
-def home(req):
-    blogs = Blog.objects.all().order_by("-date")
-    data = [1,2,3,4,5]
-    return render(req, 'home.html', {'blogs': blogs})
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to my blog 🚀")
 
 def about(req):
     return render(req, 'about.html')

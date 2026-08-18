@@ -6,7 +6,7 @@ from .models import Blog
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse("Welcome to my blog 🚀")
+    return render(request, "home.html")
 
 def about(req):
     return render(req, 'about.html')

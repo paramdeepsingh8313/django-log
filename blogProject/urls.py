@@ -21,5 +21,5 @@ from django.http import HttpResponse
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', lambda request: HttpResponse("Hello from Django")),
+    path('', include('blog.urls')),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

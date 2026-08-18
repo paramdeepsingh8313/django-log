@@ -5,8 +5,10 @@ from .models import Blog
 # Create your views here.
 from django.http import HttpResponse
 
-def home(request):
-    return render(request, "home.html")
+def home(req):
+    blogs = Blog.objects.all().order_by("-date")
+    data = [1,2,3,4,5]
+    return render(req, 'home.html', {'blogs': blogs})
 
 def about(req):
     return render(req, 'about.html')
